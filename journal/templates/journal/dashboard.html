@@ -1,1 +1,14 @@
-<h1>Dashboard Page</h1>
+{% extends "journal/index.html" %}
+
+
+{% block content %}
+
+    <h1>Dashboard Page</h1>
+
+    <hr>
+
+    <a class="btn btn-outline-warning" type="button"  href="{% url "logout" %}">Sign Out</a>
+
+
+{% endblock content %}
+

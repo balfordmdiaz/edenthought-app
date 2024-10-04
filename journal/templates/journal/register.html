@@ -1,1 +1,16 @@
-<h1>Registration Page</h1>
+{% extends "journal/index.html" %}
+
+
+{% block content %}
+
+    <form method="POST" action="" autocomplete="off" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {{ RegistrationForm.as_p }}
+
+        <button type="submit" class="btn btn-primary">Create Account</button>
+
+    </form>
+
+
+{% endblock content %}
