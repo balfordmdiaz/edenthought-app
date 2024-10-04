@@ -7,7 +7,7 @@
 
 3.- Run installation of libraries required with command.
 ```
-pip install -r requirements.txt'
+pip install -r requirements.txt
 ```
 
 4.- Configure .env file containing environment variables
