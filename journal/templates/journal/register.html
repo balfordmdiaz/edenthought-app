@@ -1,16 +1,26 @@
 {% extends "journal/index.html" %}
 
+{% load static %}
+
+{% load crispy_forms_tags %}
 
 {% block content %}
 
-    <form method="POST" action="" autocomplete="off" enctype="multipart/form-data">
-        {% csrf_token %}
+    <div class="container bg-primary shadow-md p-5 form-layout">
 
-        {{ RegistrationForm.as_p }}
+        <h3>Create your Account</h3>
+        <br>
 
-        <button type="submit" class="btn btn-primary">Create Account</button>
+        <form method="POST" action="" autocomplete="off" enctype="multipart/form-data">
+            {% csrf_token %}
+    
+            {{ RegistrationForm|crispy }}
 
-    </form>
-
+            <br>
+    
+            <button type="submit" class="btn btn-secondary btn-md w-100 btn-block p-3">Create Account</button>
+    
+        </form>
+    </div>
 
 {% endblock content %}
