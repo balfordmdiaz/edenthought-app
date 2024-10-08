@@ -1,13 +1,15 @@
-{% extends "journal/index.html" %}
+{% extends "journal/navbar.html" %}
 
 
 {% block content %}
 
-    <h1>Dashboard Page</h1>
+    <div class="container bg-primary shadow-md p-5 form-layout">
+        <h1>Dashboard Page</h1>
 
-    <hr>
+        <hr>
 
-    <a class="btn btn-outline-warning" type="button"  href="{% url "logout" %}">Sign Out</a>
+        <a class="btn btn-outline-warning" type="button"  href="{% url "logout" %}">Sign Out</a>
+    </div>
 
 
 {% endblock content %}

@@ -1,4 +1,4 @@
-{% extends "journal/index.html" %}
+{% extends "journal/index_navbar.html" %}
 
 {% load static %}
 
@@ -8,7 +8,7 @@
 
     <div class="container bg-primary shadow-md p-5 form-layout">
 
-        <h3>Logun to your Account</h3>
+        <h3>Login to your Account</h3>
 
         <br>
 
@@ -30,5 +30,8 @@
 
         </form>
     </div>
+
+
+    <script src="{% static "js/app.js" %}"></script>
 
 {% endblock content %}
