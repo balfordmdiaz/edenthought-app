@@ -1,0 +1,32 @@
+{% extends "journal/navbar.html" %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <div class="container bg-primary shadow-md p-5 form-layout">
+        <h3>Create Thought Form</h3>
+
+        <br>
+
+        <form method="POST" action="" autocomplete="off" enctype="multipart/form-data">
+            {% csrf_token %}
+    
+            {{ CreateThoughtForm|crispy }}
+
+            <!--  Second way: Specify the fields  -->
+            {% comment %} {{ CreateThoughtForm.title|as_crispy_field }}
+            {{ CreateThoughtForm.content|as_crispy_field }} {% endcomment %}
+
+            <br>
+    
+            <button type="submit" class="btn btn-secondary btn-md w-100 btn-block p-3">Create Thought</button>
+    
+        </form>
+
+    </div>
+
+
+{% endblock content %}
