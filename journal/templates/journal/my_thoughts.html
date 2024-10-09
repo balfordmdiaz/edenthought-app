@@ -17,6 +17,10 @@
                             <h4 class="card-title">{{ thought.title }}</h4>
                             <p class="card-text">{{ thought.content }}</p>
                             <small class="text-muted">{{ thought.date_posted }}</small>
+
+                            <hr>
+
+                            <a type="button" class="btn btn-info" href="{% url "update-thought" thought.id %}">Edit</a>
                         </div>
                     </div>
                 </div>

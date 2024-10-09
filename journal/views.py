@@ -108,3 +108,25 @@ def my_thoughts(request):
     context = {'AllThoughts': thought}
 
     return render(request, 'journal/my_thoughts.html', context)
+
+
+@login_required(login_url='login')
+def update_thought(request, pk):
+    
+    thought = Thought.objects.get(id=pk)
+    
+    form = ThoughtForm(instance=thought)
+    
+    if request.method == 'POST':
+        
+        form = ThoughtForm(request.POST, instance=thought)
+        
+        if form.is_valid():
+            
+            form.save()
+            
+            return redirect('my-thoughts')
+            
+    context = {'UpdateThought': form}
+    
+    return render(request, 'journal/update_thought.html', context)
