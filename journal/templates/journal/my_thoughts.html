@@ -1,0 +1,27 @@
+{% extends "journal/navbar.html" %}
+
+{% load static %}
+
+{% block content %}
+
+    <div class="container bg-primary shadow-md p-5 form-layout">
+        <h3 class="text-center">My Thoughts</h3>
+        <br>
+        
+        <div class="d-flex flex-wrap justify-content-center"> <!-- Flex container to center the cards -->
+            {% for thought in AllThoughts %}
+                <div class="m-2"> <!-- Add margin around each card -->
+                    <div class="card text-white bg-dark" style="width: 20rem;"> <!-- Set a fixed width -->
+                        <div class="card-header">Thought #{{ forloop.counter }}</div>
+                        <div class="card-body">
+                            <h4 class="card-title">{{ thought.title }}</h4>
+                            <p class="card-text">{{ thought.content }}</p>
+                            <small class="text-muted">{{ thought.date_posted }}</small>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock content %}
