@@ -11,7 +11,7 @@
         <div class="d-flex flex-wrap justify-content-center"> <!-- Flex container to center the cards -->
             {% for thought in AllThoughts %}
                 <div class="m-2"> <!-- Add margin around each card -->
-                    <div class="card text-white bg-dark" style="width: 20rem;"> <!-- Set a fixed width -->
+                    <div class="card text-white bg-dark"> <!-- Set a fixed width -->
                         <div class="card-header">Thought #{{ forloop.counter }}</div>
                         <div class="card-body">
                             <h4 class="card-title">{{ thought.title }}</h4>

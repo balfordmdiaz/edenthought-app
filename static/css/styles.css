@@ -11,11 +11,17 @@
     .form-layout {
         width: 80%; /* Reduce width on tablets */
     }
+    .card {
+        width: 15rem;
+    }
 }
 
 @media (min-width: 430px) {
     .form-layout {
         width: 80%; /* Reduce width on tablets */
+    }
+    .card {
+        width: 17rem;
     }
 }
 
@@ -23,17 +29,26 @@
     .form-layout {
         width: 80%; /* Reduce width on tablets */
     }
+    .card {
+        width: 22rem;
+    }
 }
 
 @media (min-width: 992px) {
     .form-layout {
         width: 60%; /* Narrower width on larger screens */
     }
+    .card {
+        width: 20rem;
+    }
 }
 
 @media (min-width: 1200px) {
     .form-layout {
         width: 500px; /* Maintain max width of 500px on large screens */
+    }
+    .card {
+        width: 20rem;
     }
 }
 
