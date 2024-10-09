@@ -26,5 +26,5 @@ class CreateUserForm(UserCreationForm):
         
 class LoginForm(AuthenticationForm):
     
-    username = forms.CharField(widget=TextInput())
-    password = forms.CharField(widget=PasswordInput())   
+    username = forms.CharField(widget=TextInput(attrs={'id': 'username_id', 'class': 'form-control'})) #add attributes using crispy forms
+    password = forms.CharField(widget=PasswordInput(attrs={'id': 'password_id', 'class': 'form-control'}))   
