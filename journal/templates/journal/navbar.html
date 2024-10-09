@@ -3,7 +3,6 @@
 <!DOCTYPE html>
 
 <html lang="en">
-
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width-device-width, initial-scale=1, maximum-scale=1"/>
@@ -13,60 +12,33 @@
     <title>Edenthought</title>
 </head>
 
-
 <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
-  <a class="navbar-brand main-heading" href={% url "dashboard" %}>       
-    &nbsp; Edenthought 
-  </a>
-
-
-  <button
-    class="navbar-toggler"
-    type="button"
-    data-toggle="collapse"
-    data-target="#navbarNavDropdown"
-    aria-controls="navbarNavDropdown"
-    aria-expanded="false"
-    aria-label="Toggle navigation"
-  >
-    <span class="navbar-toggler-icon"></span>
-
-  </button>
-
-  <div class="collapse navbar-collapse text-center" id="navbarNavDropdown">
-    <ul class="navbar-nav ml-auto">
-      &nbsp;     &nbsp;     &nbsp; 
-
-      <li class="nav-link">
-        <a class="nav-link" type="button"  href="{% url "dashboard" %}">Dashboard</a>
-      </li>
-
-      &nbsp;     &nbsp;     &nbsp; 
-
-      <li class="nav-link">
-        <a class="nav-link" type="button"  href="{% url "create-thought" %}">Create thought</a>
-      </li>
-
-      &nbsp;     &nbsp;     &nbsp; 
-
-      <li class="nav-link">
-        <a class="nav-link" type="button"  href="{% url "my-thoughts" %}">My thoughts</a>
-      </li>
-
-      &nbsp;     &nbsp;     &nbsp; 
-          
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url "dashboard" %}">Edenthought</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url "dashboard" %}">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url "create-thought" %}">Create thought</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url "my-thoughts" %}">My thoughts</a>
+        </li>
       </ul>
+    </div>
   </div>
 </nav>
 
-<body>
-      
+<body> 
   <br>
   <br>
 
   {% block content %}{% endblock content %}
-
-
 </body>
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"  crossorigin="anonymous"></script>

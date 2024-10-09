@@ -1,7 +1,40 @@
 
 .form-layout {
     border-radius: 20px;
-    width: 500px;
+    width: 100%; /* Full width on small screens */
+    max-width: 500px; /* Limit max width to 500px on larger screens */
+    margin: 0 auto; /* Center the div horizontally */
+}
+
+/* Responsive adjustments for tablets and larger screens */
+@media (min-width: 375px) {
+    .form-layout {
+        width: 80%; /* Reduce width on tablets */
+    }
+}
+
+@media (min-width: 430px) {
+    .form-layout {
+        width: 80%; /* Reduce width on tablets */
+    }
+}
+
+@media (min-width: 768px) {
+    .form-layout {
+        width: 80%; /* Reduce width on tablets */
+    }
+}
+
+@media (min-width: 992px) {
+    .form-layout {
+        width: 60%; /* Narrower width on larger screens */
+    }
+}
+
+@media (min-width: 1200px) {
+    .form-layout {
+        width: 500px; /* Maintain max width of 500px on large screens */
+    }
 }
 
 .message-text{
