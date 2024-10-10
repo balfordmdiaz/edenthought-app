@@ -10,16 +10,13 @@
 
         <h3 class="text-center">Create your Account</h3>
         <br>
-
         <form method="POST" action="" autocomplete="off" enctype="multipart/form-data">
             {% csrf_token %}
     
             {{ RegistrationForm|crispy }}
 
             <br>
-    
             <button type="submit" class="btn btn-secondary btn-md w-100 btn-block p-3">Create Account</button>
-    
         </form>
     </div>
 

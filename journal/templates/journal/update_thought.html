@@ -8,21 +8,15 @@
 
     <div class="container bg-primary shadow-md p-5 form-layout">
         <h3 class="text-center">Update Thought</h3>
-
         <br>
-
         <form method="POST" action="" autocomplete="off" enctype="multipart/form-data">
             {% csrf_token %}
     
             {{ UpdateThought|crispy }}
 
             <br>
-    
             <button type="submit" class="btn btn-secondary btn-md w-100 btn-block p-3">Update Thought</button>
-    
         </form>
-
     </div>
-
 
 {% endblock content %}
