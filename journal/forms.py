@@ -28,3 +28,13 @@ class LoginForm(AuthenticationForm):
     
     username = forms.CharField(widget=TextInput(attrs={'id': 'username_id', 'class': 'form-control'})) #add attributes using crispy forms
     password = forms.CharField(widget=PasswordInput(attrs={'id': 'password_id', 'class': 'form-control'}))   
+
+
+class UpdateUserForm(forms.ModelForm):
+    
+    password = None
+    class Meta:
+        
+        model = User
+        fields = ['username', 'email',]
+        exclude = ['password1', 'password2',]

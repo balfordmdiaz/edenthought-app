@@ -2,9 +2,10 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import auth
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from django.contrib import messages
 
-from .forms import CreateUserForm, LoginForm, ThoughtForm
+from .forms import CreateUserForm, LoginForm, ThoughtForm, UpdateUserForm
 
 from .models import Thought
 
@@ -153,3 +154,37 @@ def delete_thought(request, pk):
         return redirect('my-thoughts')
 
     return render(request, 'journal/delete_thought.html')
+
+
+@login_required(login_url='login')
+def profile_management(request):
+    
+    form = UpdateUserForm(instance=request.user)
+    
+    if request.method == 'POST':
+        
+        form = UpdateUserForm(request.POST, instance=request.user)
+        
+        if form.is_valid():
+            
+            form.save()
+            
+            return redirect('dashboard')
+        
+    context = {'ProfileForm': form}
+
+    return render(request, 'journal/profile_management.html', context)
+
+
+@login_required(login_url='login')
+def delete_account(request):
+    
+    if request.method == 'POST':
+        
+        deleteUser = User.objects.get(username=request.user)
+        
+        deleteUser.delete()
+        
+        return redirect('home')
+
+    return render(request, 'journal/delete_account.html')
