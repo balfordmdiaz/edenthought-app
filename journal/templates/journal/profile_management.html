@@ -9,17 +9,25 @@
     <div class="container bg-primary shadow-md p-5 form-layout">
         <h3 class="text-center">Update username and email</h3>
         <br>
-        <form method="POST" action="" autocomplete="off" enctype="multipart/form-data">
+        <form method="POST" action="" autocomplete="off">
             {% csrf_token %}
-    
-            {{ ProfileForm|crispy }}
+            {{ UserUpdateForm|crispy }}
             <br>
             <button type="submit" class="btn btn-secondary btn-md w-100 btn-block p-3">Update</button>
         </form>
     </div>
-
     <br>
-
+    <div class="container bg-primary shadow-md p-5 form-layout">
+        <h3 class="text-center">Update profile picture</h3>
+        <br>
+        <form method="POST" action="" autocomplete="off" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ ProfileUpdateForm|crispy }}
+            <br>
+            <button type="submit" class="btn btn-secondary btn-md w-100 btn-block p-3">Upload Picture</button>
+        </form>
+    </div>
+    <br>
     <div class="container bg-primary shadow-md p-5 form-layout">
         <h3 class="text-center">Delete your Account</h3>
         <br>

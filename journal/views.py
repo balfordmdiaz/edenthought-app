@@ -5,9 +5,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import messages
 
-from .forms import CreateUserForm, LoginForm, ThoughtForm, UpdateUserForm
+from .forms import CreateUserForm, LoginForm, ThoughtForm, UpdateUserForm, UpdateProfileForm
 
-from .models import Thought
+from .models import Thought, Profile
 
 
 # Create your views here.
@@ -26,7 +26,11 @@ def register(request):
         
         if form.is_valid():
             
+            current_user = form.save(commit=False)
+            
             form.save()
+            
+            profile = Profile.objects.create(user=current_user)
             
             messages.success(request, "User Created!")
             
@@ -74,7 +78,11 @@ def user_logout(request):
 @login_required(login_url='login')
 def dashboard(request):
     
-    return render(request, 'journal/dashboard.html')
+    profile_pic = Profile.objects.get(user=request.user)
+    
+    context = {'profilePic': profile_pic}
+    
+    return render(request, 'journal/dashboard.html', context)
 
 
 @login_required(login_url='login')
@@ -161,9 +169,15 @@ def profile_management(request):
     
     form = UpdateUserForm(instance=request.user)
     
+    profile = Profile.objects.get(user=request.user)
+    
+    form_2 = UpdateProfileForm(instance=profile) 
+    
     if request.method == 'POST':
         
         form = UpdateUserForm(request.POST, instance=request.user)
+        
+        form_2 = UpdateProfileForm(request.POST, request.FILES, instance=profile)
         
         if form.is_valid():
             
@@ -171,7 +185,14 @@ def profile_management(request):
             
             return redirect('dashboard')
         
-    context = {'ProfileForm': form}
+        if form_2.is_valid():
+            
+            form_2.save()
+            
+            return redirect('dashboard')
+        
+        
+    context = {'UserUpdateForm': form, 'ProfileUpdateForm': form_2}
 
     return render(request, 'journal/profile_management.html', context)
 

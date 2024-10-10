@@ -18,3 +18,6 @@ class Profile(models.Model):
     
     profile_pic = models.ImageField(null=True, blank=True, default='Default.png')
     user = models.ForeignKey(User, max_length=10, on_delete=models.CASCADE, null=True)
+
+    def __str__(self) -> str:
+        return f'{self.user} - {self.profile_pic}'
