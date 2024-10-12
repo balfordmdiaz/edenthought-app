@@ -4,6 +4,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import messages
+from django.core.mail import send_mail
+from django.conf import settings
 
 from .forms import CreateUserForm, LoginForm, ThoughtForm, UpdateUserForm, UpdateProfileForm
 
@@ -29,6 +31,8 @@ def register(request):
             current_user = form.save(commit=False)
             
             form.save()
+            
+            send_mail("Welcome to Edenthought!", "Congratulations on creating your account", settings.DEFAULT_FROM_EMAIL, [current_user.email])
             
             profile = Profile.objects.create(user=current_user)
             

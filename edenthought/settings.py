@@ -147,4 +147,4 @@ EMAIL_USE_TLS = 'True'
 EMAIL_HOST_USER = 'balforddiaz@gmail.com'
 EMAIL_HOST_PASSWORD = 'nifksxiiqeihxcqa'
 
-DEFAULT_FROM_MAIL = 'balforddiaz@gmail.com'
+DEFAULT_FROM_EMAIL = 'balforddiaz@gmail.com'
