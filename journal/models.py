@@ -16,7 +16,7 @@ class Thought(models.Model):
 
 class Profile(models.Model):
     
-    profile_pic = models.ImageField(null=True, blank=True, default='Default.png')
+    profile_pic = models.ImageField(null=True, blank=True, default='Default.png', upload_to='media/')
     user = models.ForeignKey(User, max_length=10, on_delete=models.CASCADE, null=True)
 
     def __str__(self) -> str:
