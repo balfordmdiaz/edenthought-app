@@ -27,6 +27,14 @@
 
             <button type="submit" class="btn btn-secondary btn-md w-100 btn-block p-3">Sign In</button>
         </form>
+        <br>
+        <div class="text-center">
+            <a href="{% url 'register' %}" type="button" class="btn btn-outline-light"> Don't have an account? </a>
+        </div>
+        <br>
+        <div class="text-center">
+            <a href="{% url 'reset-password' %}" type="button" class="btn btn-outline-light"> Forgotten your password? </a>
+        </div>
     </div>
 
     <script src="{% static "js/app.js" %}"></script>
